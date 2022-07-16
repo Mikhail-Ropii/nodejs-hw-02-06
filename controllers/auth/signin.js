@@ -11,7 +11,11 @@ const signin = async (req, res) => {
   if (!user) {
     throw createError(401, "Email or password is wrong");
   }
-  if (!bcryptjs.compare(password, user.password)) {
+  if (!user.verify) {
+    throw createError(401, "Email not verify");
+  }
+  const compareResult = await bcryptjs.compare(password, user.password);
+  if (!compareResult) {
     throw createError(401, "Email or password is wrong");
   }
   const payload = {
