@@ -6,6 +6,8 @@ const subUpdate = require("./subUpdate");
 const verifyEmail = require("./verifyEmail");
 const resendVerifyEmail = require("./resendVerifyEmail");
 
+const updateAvatar = require("./updateAvatar");
+
 module.exports = {
   signup,
   signin,
@@ -14,4 +16,6 @@ module.exports = {
   subUpdate,
   verifyEmail,
   resendVerifyEmail,
+
+  updateAvatar,
 };
