@@ -16,6 +16,13 @@ router.get("/logout", authMiddle, ctrlWrapper(ctrl.logout));
 
 router.patch("/", authMiddle, ctrlWrapper(ctrl.subUpdate));
 
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
+
+router.post(
+  "/verify",
+  validation(schemas.email),
+  ctrlWrapper(ctrl.resendVerifyEmail)
+
 router.patch(
   "/avatars",
   authMiddle,
